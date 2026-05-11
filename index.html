@@ -1,64 +1,84 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ==========================================
-         [SEO 검색엔진 최적화 및 공유 썸네일 설정]
-         ========================================== -->
-    <title>주식회사 샘플 - 건강한 미래를 만드는 기업</title>
-    <meta name="description" content="주식회사 샘플의 회사 소개, 최첨단 공장 시설, 대표 건강기능식품 및 인증 정보를 확인하세요.">
-    <meta name="keywords" content="건강기능식품, 영양제, 공장소개, 회사소개, HACCP, 주식회사샘플">
+    <!-- [SEO 검색엔진 최적화 및 공유 썸네일 설정] -->
+    <title>주식회사 타파 (TAPA) - 아유 오케이?</title>
+    <meta name="description" content="숙취와 피로를 한 번에 케어! 주식회사 타파의 숙취해소제 '아유 오케이'와 최첨단 공장 시설을 확인하세요.">
+    <meta name="keywords" content="숙취해소제, 아유오케이, 주식회사타파, TAPA, 다슬기, 헛개열매, 오리나무, 인진쑥, 갈근, 숙취해소">
     
-    <!-- 카카오톡/페이스북 등 링크 공유 시 나타나는 미리보기(Open Graph) 설정 -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="주식회사 샘플 - 공식 홈페이지">
-    <meta property="og:description" content="고객의 건강한 삶을 책임지는 주식회사 샘플입니다.">
+    <meta property="og:title" content="주식회사 타파 - 아유 오케이">
+    <meta property="og:description" content="엄선된 5가지 핵심 성분으로 숙취와 피로를 한 번에 케어하세요.">
     <meta property="og:url" content="https://아이디.github.io/저장소이름/">
-    <meta property="og:image" content="https://아이디.github.io/저장소이름/images/og-image.jpg"> <!-- 미리보기 이미지 경로 -->
+    <meta property="og:image" content="https://아이디.github.io/저장소이름/images/og-image.jpg">
 
-    <!-- ==========================================
-         [검색 엔진 소유권 확인 태그 입력란]
-         아래 content="" 부분에 네이버/구글에서 발급받은 코드를 넣으세요!
-         ========================================== -->
+    <!-- [검색 엔진 소유권 확인 태그 입력란] -->
     <meta name="naver-site-verification" content="여기에_네이버_인증코드를_입력하세요" />
     <meta name="google-site-verification" content="여기에_구글_인증코드를_입력하세요" />
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN 및 커스텀 테마 설정 -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            // 제품 라벨과 홍보물의 색상을 추출한 트렌디한 레드/버건디 팔레트
+                            light: '#fff5f5',   // 아주 옅은 핑크/베이지 (배경용)
+                            soft: '#fecdd3',    // 부드러운 로즈
+                            DEFAULT: '#e11d48', // 포인트 코랄 레드 (제품 라벨 느낌)
+                            dark: '#9f1239',    // 깊은 버건디 레드 (텍스트/강조용)
+                            bg: '#fdfbf7',      // 따뜻한 아이보리 바탕색
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         .placeholder-img {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #6b7280;
-            background-color: #e5e7eb;
+            color: #78716c; /* stone-500 */
+            background-color: #f5f5f4; /* stone-100 */
             font-weight: bold;
             text-align: center;
+            border: 1px dashed #d6d3d1;
         }
+        
+        /* 커스텀 스크롤바 (브랜드 색상 적용) */
+        #main-content::-webkit-scrollbar { width: 8px; }
+        #main-content::-webkit-scrollbar-track { background: #fdfbf7; }
+        #main-content::-webkit-scrollbar-thumb { background: #fecdd3; border-radius: 4px; }
+        #main-content::-webkit-scrollbar-thumb:hover { background: #e11d48; }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased bg-white">
+<body class="font-sans text-stone-800 antialiased bg-brand-bg overflow-hidden">
 
     <!-- Header / Navigation -->
-    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+    <header class="fixed top-0 left-0 right-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300 border-b border-stone-100">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-extrabold text-blue-600">Company Logo</a>
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <!-- 텍스트 로고 (추후 이미지로 교체 가능) -->
+                    <a href="#hero" class="nav-logo text-2xl font-extrabold text-brand-dark tracking-tight">TAPA<span class="text-brand text-sm ml-1">주식회사 타파</span></a>
                 </div>
                 <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">회사소개</a>
-                    <a href="#factory" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">공장소개</a>
-                    <a href="#product" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">제품소개</a>
-                    <a href="#cert" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">인증정보</a>
+                <nav class="hidden md:flex space-x-8" id="desktop-nav">
+                    <a href="#about" class="nav-link text-stone-500 hover:text-brand font-bold transition-colors">회사소개</a>
+                    <a href="#factory" class="nav-link text-stone-500 hover:text-brand font-bold transition-colors">공장소개</a>
+                    <a href="#product" class="nav-link text-stone-500 hover:text-brand font-bold transition-colors">제품소개</a>
+                    <a href="#cert" class="nav-link text-stone-500 hover:text-brand font-bold transition-colors">인증정보</a>
                 </nav>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600 focus:outline-none" aria-label="메뉴 열기">
+                    <button id="mobile-menu-btn" class="text-stone-600 hover:text-brand focus:outline-none" aria-label="메뉴 열기">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -67,218 +87,222 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100 absolute w-full shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">회사소개</a>
-                <a href="#factory" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">공장소개</a>
-                <a href="#product" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">제품소개</a>
-                <a href="#cert" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">인증정보</a>
+                <a href="#about" class="mobile-nav-link block px-3 py-2 text-base font-medium text-stone-700 hover:text-brand hover:bg-brand-light rounded-md">회사소개</a>
+                <a href="#factory" class="mobile-nav-link block px-3 py-2 text-base font-medium text-stone-700 hover:text-brand hover:bg-brand-light rounded-md">공장소개</a>
+                <a href="#product" class="mobile-nav-link block px-3 py-2 text-base font-medium text-stone-700 hover:text-brand hover:bg-brand-light rounded-md">제품소개</a>
+                <a href="#cert" class="mobile-nav-link block px-3 py-2 text-base font-medium text-stone-700 hover:text-brand hover:bg-brand-light rounded-md">인증정보</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="pt-24 pb-12 md:pt-32 md:pb-24 bg-blue-50">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-                건강한 미래를 만드는 기업
-            </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                우리는 최고의 품질과 엄격한 관리로 고객의 건강한 삶을 책임집니다.
-            </p>
-            <div class="w-full max-w-4xl mx-auto h-64 md:h-96 rounded-2xl shadow-lg placeholder-img">
-                <span class="text-xl md:text-2xl">[ 메인 홍보용 이미지 / 배너 삽입 영역 ]</span>
-            </div>
-        </div>
-    </section>
+    <!-- 스크롤 컨테이너 -->
+    <main id="main-content" class="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth relative">
+        
+        <!-- 1. Hero Section (메인) -->
+        <section id="hero" class="section snap-start snap-always min-h-screen flex items-center justify-center bg-brand-light pt-16 relative">
+            <!-- 배경 장식 요소 -->
+            <div class="absolute top-20 left-10 w-32 h-32 bg-brand-soft rounded-full mix-blend-multiply filter blur-2xl opacity-50"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 bg-brand rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
 
-    <!-- 회사소개 (About) -->
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">회사 소개</h2>
-                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4"></div>
-            </div>
-            <div class="max-w-3xl mx-auto text-center text-gray-600 leading-relaxed text-lg space-y-6">
-                <p>
-                    저희 기업은 설립 이래로 오직 '고객의 건강과 안전'만을 생각하며 끊임없이 연구하고 발전해왔습니다.
+            <div class="container mx-auto px-4 text-center w-full z-10">
+                <p class="text-brand font-bold tracking-widest mb-3 uppercase">숙취와 피로를 한 번에 케어!</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-dark mb-6 tracking-tight">
+                    Are You Okay?
+                </h1>
+                <p class="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto">
+                    엄선된 5가지 핵심 성분이 한 병에.<br class="md:hidden"> 오늘 하루도 오케이하게 시작하세요.
                 </p>
-                <p>
-                    자연에서 얻은 순수한 원료를 바탕으로 첨단 기술을 접목하여, 누구나 믿고 섭취할 수 있는 최고 품질의 제품을 생산하고 있습니다. 정직한 신념과 투명한 공정으로 여러분의 일상에 활력을 더해드리겠습니다.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 공장소개 (Factory) -->
-    <section id="factory" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">최첨단 제조 공장</h2>
-                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4"></div>
-                <p class="mt-4 text-gray-600">철저한 위생 관리와 최신식 설비로 안전하게 생산합니다.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 이미지 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-64 w-full placeholder-img">
-                        <span>[ 공장 외경 이미지 ]</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-gray-800">청정 구역 전경</h3>
-                        <p class="text-gray-600">자연과 어우러진 깨끗한 환경에 위치한 본사 공장입니다.</p>
-                    </div>
-                </div>
-                <!-- 이미지 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-64 w-full placeholder-img">
-                        <span>[ 내부 생산라인 이미지 ]</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-gray-800">최신식 자동화 설비</h3>
-                        <p class="text-gray-600">오차 없는 정밀한 공정을 위한 최첨단 자동화 생산 라인입니다.</p>
-                    </div>
-                </div>
-                <!-- 이미지 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow md:col-span-2 lg:col-span-1">
-                    <div class="h-64 w-full placeholder-img">
-                        <span>[ 연구/품질관리 이미지 ]</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-gray-800">엄격한 품질 관리실</h3>
-                        <p class="text-gray-600">출하 전 모든 제품에 대해 까다로운 자체 검수 및 품질 테스트를 진행합니다.</p>
-                    </div>
+                <div class="w-full max-w-3xl mx-auto h-72 md:h-96 rounded-3xl shadow-2xl overflow-hidden bg-white border-4 border-white placeholder-img relative">
+                    <span class="text-xl md:text-2xl text-stone-400">[ 아유 오케이 제품 병 연출 컷 삽입 ]</span>
+                    <!-- <img> 태그 사용 예시: 
+                    <img src="./images/bottle.jpg" alt="아유 오케이 제품" class="w-full h-full object-cover"> 
+                    -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 제품소개 (Product) -->
-    <section id="product" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">대표 제품 소개</h2>
-                <div class="w-16 h-1 bg-blue-600 mx-auto mt-4"></div>
+        <!-- 2. 회사소개 (About) -->
+        <section id="about" class="section snap-start snap-always min-h-screen flex items-center justify-center bg-white pt-16">
+            <div class="container mx-auto px-4 w-full">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark">주식회사 타파</h2>
+                    <div class="w-12 h-1.5 bg-brand mx-auto mt-5 rounded-full"></div>
+                </div>
+                <div class="max-w-3xl mx-auto text-center text-stone-600 leading-relaxed text-lg md:text-xl space-y-6">
+                    <p>
+                        <strong class="text-brand-dark font-bold">TAPA(주식회사 타파)</strong>는 바쁜 현대인들의 일상 속 피로와 숙취를 타파하기 위해 설립되었습니다.
+                    </p>
+                    <p>
+                        자연에서 얻은 순수한 원료를 바탕으로 첨단 기술을 접목하여, 누구나 믿고 섭취할 수 있는 최고 품질의 제품을 생산합니다. 정직한 신념과 투명한 공정으로 여러분의 내일에 활력을 더해드리겠습니다.
+                    </p>
+                </div>
             </div>
+        </section>
 
-            <div class="flex flex-col lg:flex-row items-start gap-12 max-w-6xl mx-auto">
-                <!-- 좌측 브로슈어/제품 이미지 -->
-                <div class="w-full lg:w-1/2">
-                    <div class="w-full h-[500px] md:h-[600px] rounded-2xl shadow-lg placeholder-img">
-                        <span class="text-lg">[ 홍보용 브로슈어/제품 세로형 이미지 삽입 ]</span>
+        <!-- 3. 공장소개 (Factory) -->
+        <section id="factory" class="section snap-start snap-always min-h-screen flex items-center justify-center bg-brand-bg pt-16 py-12">
+            <div class="container mx-auto px-4 w-full">
+                <div class="text-center mb-10 md:mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark">최첨단 제조 공장</h2>
+                    <div class="w-12 h-1.5 bg-brand mx-auto mt-5 rounded-full"></div>
+                    <p class="mt-4 text-stone-500 font-medium">철저한 위생 관리와 최신식 설비로 안전하게 생산합니다.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                    <!-- 시설 1 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-brand-soft/30 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                        <div class="h-48 md:h-56 w-full placeholder-img bg-stone-100 group-hover:bg-brand-light transition-colors">
+                            <span class="text-stone-400">[ 공장 외경 ]</span>
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="font-bold text-lg md:text-xl mb-2 text-brand-dark">청정 구역 전경</h3>
+                            <p class="text-sm md:text-base text-stone-500 line-clamp-2">자연과 어우러진 깨끗한 환경에 위치한 본사 공장입니다.</p>
+                        </div>
+                    </div>
+                    <!-- 시설 2 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-brand-soft/30 overflow-hidden hover:shadow-lg transition-all duration-300 hidden md:block group">
+                        <div class="h-48 md:h-56 w-full placeholder-img bg-stone-100 group-hover:bg-brand-light transition-colors">
+                            <span class="text-stone-400">[ 생산 라인 ]</span>
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="font-bold text-lg md:text-xl mb-2 text-brand-dark">최신식 자동화 설비</h3>
+                            <p class="text-sm md:text-base text-stone-500 line-clamp-2">오차 없는 정밀한 공정을 위한 최첨단 자동화 라인입니다.</p>
+                        </div>
+                    </div>
+                    <!-- 시설 3 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-brand-soft/30 overflow-hidden hover:shadow-lg transition-all duration-300 hidden lg:block group">
+                        <div class="h-48 md:h-56 w-full placeholder-img bg-stone-100 group-hover:bg-brand-light transition-colors">
+                            <span class="text-stone-400">[ 품질 관리실 ]</span>
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="font-bold text-lg md:text-xl mb-2 text-brand-dark">엄격한 품질 관리실</h3>
+                            <p class="text-sm md:text-base text-stone-500 line-clamp-2">출하 전 모든 제품에 대해 까다로운 자체 테스트를 진행합니다.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- 우측 제품 상세 정보 -->
-                <div class="w-full lg:w-1/2 space-y-8">
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">프리미엄 건강기능식품 [제품명]</h3>
-                        <p class="text-lg text-blue-600 font-medium">건강을 위한 완벽한 솔루션</p>
-                    </div>
+        <!-- 4. 제품소개 (Product) - 성분표 중심 -->
+        <section id="product" class="section snap-start snap-always min-h-screen flex items-center justify-center bg-white pt-16 py-12">
+            <div class="container mx-auto px-4 w-full">
+                <div class="text-center mb-10 md:mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark">한 병에 이 모든 성분이</h2>
+                    <div class="w-12 h-1.5 bg-brand mx-auto mt-5 rounded-full"></div>
+                </div>
 
-                    <!-- 주원료 -->
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                        <h4 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-green-500 mr-2">🌿</span> 주원료
-                        </h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li><strong>홍삼 농축액:</strong> 면역력 증진 및 피로 개선 (샘플 텍스트)</li>
-                            <li><strong>비타민 복합체:</strong> 에너지 생성 및 대사 촉진</li>
-                            <li><strong>천연 추출물:</strong> 화학 첨가물 없는 자연 유래 성분 100%</li>
-                        </ul>
-                    </div>
-
-                    <!-- 효능 -->
-                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                        <h4 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-blue-500 mr-2">✨</span> 핵심 효능
-                        </h4>
-                        <div class="grid grid-cols-2 gap-4 text-gray-700">
-                            <div class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>면역력 증진</span>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>피로 회복</span>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>혈행 개선</span>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>기억력 개선</span>
-                            </div>
+                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 max-w-6xl mx-auto">
+                    <!-- 좌측 홍보 이미지 (세로형) -->
+                    <div class="w-full lg:w-1/3 flex justify-center">
+                        <div class="w-full max-w-sm h-[400px] md:h-[500px] rounded-3xl shadow-lg border border-stone-100 placeholder-img">
+                            <span class="text-base text-stone-400 text-center px-4">[ 성분 홍보 브로슈어<br>이미지 1 삽입 ]</span>
                         </div>
                     </div>
 
-                    <!-- 이런 분들에게 필요합니다 (추천 대상) -->
-                    <div class="p-6 border border-gray-200 rounded-xl">
-                        <h4 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                            <span class="text-red-500 mr-2">❤️</span> 이런 분들에게 추천합니다!
-                        </h4>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-center"><span class="mr-2">✔️</span> 평소 야근과 스트레스로 피로를 느끼시는 직장인</li>
-                            <li class="flex items-center"><span class="mr-2">✔️</span> 기력 보충이 필요한 부모님</li>
-                            <li class="flex items-center"><span class="mr-2">✔️</span> 체력 관리가 필수적인 수험생 및 학생</li>
-                            <li class="flex items-center"><span class="mr-2">✔️</span> 활기찬 아침을 맞이하고 싶으신 분</li>
-                        </ul>
+                    <!-- 우측 성분 리스트 -->
+                    <div class="w-full lg:w-2/3">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                            <!-- 다슬기 -->
+                            <div class="bg-brand-bg p-5 rounded-2xl border border-brand-soft/50 flex gap-4 items-start hover:shadow-md transition-shadow">
+                                <div class="w-14 h-14 rounded-full bg-white flex-shrink-0 flex items-center justify-center shadow-sm placeholder-img border-none">
+                                    <span class="text-[10px]">이미지</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-dark mb-1">다슬기</h4>
+                                    <p class="text-sm text-stone-600 leading-snug">아미노산과 타우린 성분이 풍부하여 <strong>간세포 활성화</strong>와 <strong>간기능 개선</strong>, 피로회복에 좋습니다.</p>
+                                </div>
+                            </div>
+                            <!-- 헛개열매 -->
+                            <div class="bg-brand-bg p-5 rounded-2xl border border-brand-soft/50 flex gap-4 items-start hover:shadow-md transition-shadow">
+                                <div class="w-14 h-14 rounded-full bg-white flex-shrink-0 flex items-center justify-center shadow-sm placeholder-img border-none">
+                                    <span class="text-[10px]">이미지</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-dark mb-1">헛개열매</h4>
+                                    <p class="text-sm text-stone-600 leading-snug">포도당, 사과산칼슘 등이 함유되어 간에 쌓이는 <strong>피로물질을 없애주어</strong> 피로회복에 도움을 줍니다.</p>
+                                </div>
+                            </div>
+                            <!-- 오리나무 -->
+                            <div class="bg-brand-bg p-5 rounded-2xl border border-brand-soft/50 flex gap-4 items-start hover:shadow-md transition-shadow">
+                                <div class="w-14 h-14 rounded-full bg-white flex-shrink-0 flex items-center justify-center shadow-sm placeholder-img border-none">
+                                    <span class="text-[10px]">이미지</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-dark mb-1">오리나무</h4>
+                                    <p class="text-sm text-stone-600 leading-snug">알코올을 해독하고 숙취와 알코올중독, 간질환 등 <strong>간에 쌓인 독을 풀어줍니다.</strong></p>
+                                </div>
+                            </div>
+                            <!-- 인진쑥 -->
+                            <div class="bg-brand-bg p-5 rounded-2xl border border-brand-soft/50 flex gap-4 items-start hover:shadow-md transition-shadow">
+                                <div class="w-14 h-14 rounded-full bg-white flex-shrink-0 flex items-center justify-center shadow-sm placeholder-img border-none">
+                                    <span class="text-[10px]">이미지</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-dark mb-1">인진쑥</h4>
+                                    <p class="text-sm text-stone-600 leading-snug">카피라린이라는 성분이 간기능을 활발하게 해주고 <strong>간세포의 손상을 막아주는</strong> 효능이 있습니다.</p>
+                                </div>
+                            </div>
+                            <!-- 갈근 -->
+                            <div class="bg-brand-bg p-5 rounded-2xl border border-brand-soft/50 flex gap-4 items-start hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+                                <div class="w-14 h-14 rounded-full bg-white flex-shrink-0 flex items-center justify-center shadow-sm placeholder-img border-none">
+                                    <span class="text-[10px]">이미지</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-brand-dark mb-1">갈근</h4>
+                                    <p class="text-sm text-stone-600 leading-snug">카테킨 성분이 숙취를 유발하는 <strong>아세트알데히드를 분해하여</strong> 숙취를 해소해 줍니다.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 인증정보 (Certifications) -->
-    <section id="cert" class="py-16 md:py-24 bg-gray-900 text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">안전 및 품질 인증</h2>
-                <div class="w-16 h-1 bg-blue-500 mx-auto mt-4"></div>
-                <p class="mt-4 text-gray-400">믿고 섭취할 수 있도록 국가 및 국제 기관의 엄격한 심사를 통과했습니다.</p>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 max-w-4xl mx-auto">
-                <!-- HACCP 인증 마크 -->
-                <div class="flex flex-col items-center">
-                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white placeholder-img bg-white text-gray-800 mb-4 overflow-hidden">
-                        <span class="text-sm font-bold text-center px-2">[ HACCP<br>로고 이미지 ]</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-blue-400">HACCP 인증</h3>
-                    <p class="text-center text-sm text-gray-400 mt-2">식품의약품안전처<br>식품안전관리인증기준 적용 업소</p>
+        <!-- 5. 인증정보 (Certifications) -->
+        <section id="cert" class="section snap-start snap-always min-h-screen flex items-center justify-center bg-stone-900 text-white pt-16 relative">
+            <div class="container mx-auto px-4 w-full text-center">
+                <div class="mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-light">안전 및 품질 인증</h2>
+                    <div class="w-12 h-1.5 bg-brand mx-auto mt-5 rounded-full"></div>
+                    <p class="mt-4 text-stone-400 font-medium">안심하고 드실 수 있도록 엄격한 심사를 통과했습니다.</p>
                 </div>
 
-                <!-- IRB 인증 마크 -->
-                <div class="flex flex-col items-center">
-                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white placeholder-img bg-white text-gray-800 mb-4 overflow-hidden">
-                        <span class="text-sm font-bold text-center px-2">[ IRB<br>로고 이미지 ]</span>
+                <div class="flex flex-row justify-center items-center gap-10 md:gap-24 max-w-4xl mx-auto pb-24">
+                    <div class="flex flex-col items-center group">
+                        <div class="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-stone-800 placeholder-img bg-white text-stone-800 mb-5 shadow-2xl group-hover:scale-105 group-hover:border-brand transition-all duration-300">
+                            <span class="text-sm font-bold text-center">[ HACCP 로고 ]</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-brand-soft">HACCP 인증</h3>
+                        <p class="text-xs md:text-sm text-stone-400 mt-2 hidden sm:block">식품안전관리인증기준</p>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-400">IRB 승인</h3>
-                    <p class="text-center text-sm text-gray-400 mt-2">임상시험심사위원회<br>인체적용시험 윤리성 및 안전성 승인</p>
+
+                    <div class="flex flex-col items-center group">
+                        <div class="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-stone-800 placeholder-img bg-white text-stone-800 mb-5 shadow-2xl group-hover:scale-105 group-hover:border-brand transition-all duration-300">
+                            <span class="text-sm font-bold text-center">[ IRB 로고 ]</span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-brand-soft">IRB 승인</h3>
+                        <p class="text-xs md:text-sm text-stone-400 mt-2 hidden sm:block">인체적용시험 윤리성 승인</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 text-gray-400 py-10">
-        <div class="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                <p class="text-lg font-bold text-white mb-2">주식회사 샘플</p>
-                <p class="text-sm">대표자: 홍길동 | 사업자등록번호: 123-45-67890</p>
-                <p class="text-sm">주소: 서울특별시 강남구 테헤란로 123, 4층</p>
-                <p class="text-sm">고객센터: 1588-0000 | 이메일: info@sample.com</p>
-            </div>
-            <div class="text-sm">
-                <p>&copy; 2026 Sample Company. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+            <!-- Footer -->
+            <footer class="absolute bottom-0 w-full bg-black/50 backdrop-blur-sm text-stone-400 py-6 text-xs md:text-sm text-center border-t border-stone-800">
+                <div class="container mx-auto px-4">
+                    <p class="mb-1 text-stone-300 font-medium">주식회사 타파 (TAPA)</p>
+                    <p class="mb-2">대표자: 홍길동 | 사업자등록번호: 123-45-67890 | 고객센터: 1588-0000</p>
+                    <p>&copy; 2026 TAPA, Ltd. All Rights Reserved.</p>
+                </div>
+            </footer>
+        </section>
 
-    <!-- 모바일 메뉴 동작 스크립트 -->
+    </main>
+
+    <!-- UI 동작 스크립트 -->
     <script>
+        // 1. 모바일 메뉴 토글
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
@@ -286,11 +310,61 @@
             menu.classList.toggle('hidden');
         });
 
-        const mobileLinks = menu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
+        // 2. 부드러운 스크롤 이동
+        const mainContainer = document.getElementById('main-content');
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 menu.classList.add('hidden');
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if(targetSection) {
+                    mainContainer.scrollTo({
+                        top: targetSection.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // 3. 스크롤 위치에 따른 상단 메뉴 색상 변경 (Intersection Observer)
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        const observerOptions = {
+            root: mainContainer,
+            threshold: 0.5 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.id;
+                    
+                    // PC 메뉴
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-brand', 'font-black');
+                        link.classList.add('text-stone-500');
+                        if (link.getAttribute('href') === `#${currentId}`) {
+                            link.classList.add('text-brand', 'font-black');
+                            link.classList.remove('text-stone-500');
+                        }
+                    });
+
+                    // 모바일 메뉴
+                    mobileNavLinks.forEach(link => {
+                        link.classList.remove('text-brand', 'font-black', 'bg-brand-light');
+                        if (link.getAttribute('href') === `#${currentId}`) {
+                            link.classList.add('text-brand', 'font-black', 'bg-brand-light');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
